@@ -1,99 +1,109 @@
-# 3D Exoplanet Explorer
+# 3D Exoplanet Explorer 🌌
 
-A web application for interactive 3D visualization and exploration of exoplanetary systems discovered by NASA. Users can browse a star field, select stars, and explore their planetary systems in a dynamic, Three.js-powered environment.
+## Overview
+3D Exoplanet Explorer is an interactive web application that visualizes thousands of real exoplanetary systems discovered by NASA. Built with React and Three.js, this tool allows users to navigate through a 3D star field, select host stars, and explore detailed planetary systems with procedurally generated textures.  
 
-## Features
+#### This Project is Developed for the NASA Space Apps Challenge 2024 by:
+```
+B. Ratna Babu, SK. Khaja, C. Sai Tejaswini, T. Eswar Sai Nandan, L. Kalyani, and U. Mounika.
+```
 
-- **3D Star Field:** Visualizes thousands of real exoplanet host stars in a navigable 3D space.
-- **Star Details:** Click on a star to view its distance, temperature, discovery year, and more.
-- **Planetary System View:** Zoom into a star to see its planets, their orbits, and physical properties.
-- **Procedural Planet Textures:** Each planet is rendered with a unique, procedurally generated texture based on its properties.
-- **Modern UI:** Built with React and Material UI for a sleek, responsive experience.
-- **Live NASA Data:** Fetches up-to-date exoplanet data from NASA’s Exoplanet Archive API via a Flask backend.
+
+## Features ✨
+- **Immersive 3D Star Field**: Navigate through thousands of real exoplanet host stars
+- **Detailed Star Information**: View distance, temperature, discovery year, and other properties
+- **Planetary System Visualization**: Explore planets with accurate orbits and physical characteristics
+- **Dynamic Planet Textures**: Procedurally generated unique textures for each planet
+- **Modern UI**: Responsive interface built with React and Material UI
+- **Live NASA Data**: Real-time data from NASA's Exoplanet Archive
 
 ## Demo
+<img width="1527" height="859" alt="Screenshot 2025-07-21 221735" src="https://github.com/user-attachments/assets/f06da373-7df3-46d5-a166-e2d879921942" />
+<img width="1327" height="746" alt="Screenshot 2025-07-21 225741" src="https://github.com/user-attachments/assets/fb0ba2c6-4e22-4be4-9582-59a6b2461d28" />
+<img width="1008" height="850" alt="Screenshot 2025-07-21 215424" src="https://github.com/user-attachments/assets/b03ab549-1a7c-4cc8-ac35-7c07611108ff" />
+<img width="1125" height="633" alt="Screenshot 2025-07-21 225303" src="https://github.com/user-attachments/assets/796386ea-ea3c-4a8a-b968-94ac7d263bec" />
+<img width="1012" height="569" alt="Screenshot 2024-10-06 131016" src="https://github.com/user-attachments/assets/ff187202-a090-4d62-a6b9-0c79542165c2" />
 
-![screenshot](public/images/starsurface.jpg)
 
-## Getting Started
+## Getting Started 🚀
 
 ### Prerequisites
-
-- Node.js (v16+ recommended)
+- Node.js (v16+)
 - npm
 - Python 3.8+
 
-### 1. Clone the Repository
-
+### Installation
+1. Clone the repository:
 ```bash
 git clone <your-repo-url>
 cd 3dexp_backup
 ```
 
-### 2. Install Frontend Dependencies
-
+2. Install frontend dependencies:
 ```bash
 npm install
 ```
 
-### 3. Start the Backend (Flask API)
+3. Set up backend:
+```bash
+# Install Python dependencies
+pip install flask flask-cors requests
 
-1. Install Python dependencies (Flask, flask-cors, requests):
-   ```bash
-   pip install flask flask-cors requests
-   ```
-2. Run the backend server:
-   ```bash
-   python src/backend/app.py
-   ```
-   The backend will start on [http://127.0.0.1:5000](http://127.0.0.1:5000).
+# Start backend server
+python src/backend/app.py
+```
 
-### 4. Start the Frontend (React App)
-
+4. Start the React app:
 ```bash
 npm start
 ```
 
-The app will open at [http://localhost:3000](http://localhost:3000) and connect to the backend for data.
+The application will be available at `http://localhost:3000`
 
-## Project Structure
-
+## Project Structure 📂
 ```
 3dexp_backup/
 ├── src/
-│   ├── Exo3d/           # 3D visualization components (Three.js)
-│   ├── backend/         # Flask backend API
-│   ├── components/      # (Reserved for additional React components)
-│   ├── App.js           # Main React entry
+│   ├── Exo3d/           # Three.js visualization components
+│   ├── backend/         # Flask API implementation
+│   ├── components/      # React UI components
+│   ├── App.js           # Main application entry point
 │   └── ...
 ├── public/              # Static assets (textures, images)
 ├── package.json         # Frontend dependencies
 ├── requirements.txt     # Backend dependencies
-└── README.md            # Project documentation
+└── README.md
 ```
 
-## API Endpoints (Backend)
+## API Endpoints 🔌
+| Endpoint | Description |
+|----------|-------------|
+| `GET /api/exoplanets` | List of exoplanet host stars with basic info |
+| `GET /api/planetary-system/<star_name>` | Detailed planetary system data for a specific star |
 
-- `GET /api/exoplanets` — List of exoplanet host stars with basic info
-- `GET /api/planetary-system/<star_name>` — Detailed planetary system for a given star
+## Technologies Used 💻
+- **Frontend**: React, Three.js, Material UI, Axios
+- **Backend**: Python, Flask, Flask-CORS
+- **Data Source**: [NASA Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/)
 
-## Technologies Used
+## Customization 🛠️
+1. Add new planet textures to `public/images/`
+2. Modify queries in `src/backend/app.py` to fetch additional data fields
+3. Adjust visualization parameters in `src/Exo3d/` components
 
-- **Frontend:** React, Three.js, Material UI, Axios
-- **Backend:** Python, Flask, Flask-CORS, Requests
-- **Data Source:** [NASA Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/)
+## License 📄
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Customization
+## Team 👥
+Developed for NASA Space Apps Challenge 2024 by:
+- B. Ratna Babu
+- SK. Khaja
+- C. Sai Tejaswini
+- T. Eswar Sai Nandan
+- L. Kalyani
+- U. Mounika
 
-- Add new textures to `public/images/` for planets or stars.
-- Modify queries in `src/backend/app.py` to fetch additional data fields.
-
-## License
-
-MIT
-
-## Acknowledgments
-
-- NASA Exoplanet Archive for open data
-- Three.js for 3D rendering
-- Material UI for UI components
+## Acknowledgments 🙏
+- NASA Exoplanet Archive for open data access
+- Three.js community for 3D rendering tools
+- Material UI team for UI components
